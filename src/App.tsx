@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import type { Question, Screen, ParseError } from "./types";
 import { useQuizState } from "./hooks/useQuizState";
 import { loadQuizState, clearQuizState } from "./utils/storage";
@@ -131,6 +132,7 @@ export default function App() {
       {screen === "review" && state && (
         <ReviewScreen state={state} onBack={handleReviewBack} />
       )}
+      <Analytics />
     </>
   );
 }
